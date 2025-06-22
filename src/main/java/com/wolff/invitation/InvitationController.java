@@ -27,7 +27,7 @@ public class InvitationController {
 	@GetMapping("/validar")
 	public Object validar(@RequestParam String id) {
 		return service.validarInvitacion(id).map(inv -> Map.of("valida", true, "nombre", inv.getNombre(), "personas",
-				inv.getPersonas(), "checkin", inv.isCheckin())).orElse(Map.of("valida", false));
+				inv.getPersonas(), "checkin", inv.isCheckin(),"mesa", inv.getMesa())).orElse(Map.of("valida", false));
 	}
 
 	@PostMapping("/checkin")
